@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Documentation Index</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.simplex.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Documentation</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="AnimNum.html">AnimNum</a></li><li><a href="Renderer.html">Renderer</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#def">def</a></li><li><a href="global.html#extend">extend</a></li><li><a href="global.html#formatNumber">formatNumber</a></li><li><a href="global.html#getClassName">getClassName</a></li><li><a href="global.html#initState">initState</a></li><li><a href="global.html#isArray">isArray</a></li><li><a href="global.html#union">union</a></li><li><a href="global.html#unshiftItems">unshiftItems</a></li><li><a href="global.html#updateState">updateState</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+    <section class="readme-section">
+        <article><script src="../dist/anim-num.js"></script>
+
+<h1>Anim-Num</h1><blockquote>
+<p>全称: animate-number, 具有动画能力的数字. <small>默认采用 transform + transition 过渡动画</small></p>
+</blockquote>
+<h2>动画队列</h2><p>当前动画未结束时, 执行了 <code>update()</code> 后, 会将变化的值存入一个动画队列, 同时返回
+<code>Promise</code> 对象, 可以用来对指定的<code>update()</code>动画结束后的操作.</p>
+<h2>Example</h2><h3>有符号数字变化</h3><pre class="prettyprint source lang-html"><code>&lt;div id=&quot;demo&quot;>&lt;/div>
+&lt;script>
+  var animNum = new AnimNum('#demo', 500, {
+    unsigned: false
+  });
+  animNum.start().then(() => 
+    animNum.update(1000)
+  ).then(() => {
+    animNum.update(-9999)
+  });
+&lt;/script></code></pre><p><div id="demo"></div></p>
+<script>
+  var animNum = new AnimNum('#demo', 500, {
+    unsigned: false
+  });
+  animNum.start().then(() => 
+    animNum.update(1000)
+  ).then(() => {
+    animNum.update(-9999)
+  });
+</script>
+
+<h3>无符号数字变化</h3><pre class="prettyprint source lang-html"><code>&lt;div id=&quot;demo&quot;>&lt;/div>
+&lt;script>
+  var animNum = new AnimNum('#demo', 500, {
+    unsigned: false
+  });
+  animNum.start().then(() => 
+    animNum.update(1000)
+  ).then(() => {
+    animNum.update(-9999)
+  });
+&lt;/script></code></pre><p><div id="demo2"></div></p>
+<script>
+  var animNum2 = new AnimNum('#demo2', 500);
+  animNum2.start().then(() => 
+    animNum2.update(1000)
+  ).then(() => {
+    animNum2.update(-9999)
+  });
+</script>
+
+<h3>整数类型</h3><pre class="prettyprint source lang-html"><code>&lt;div id=&quot;demo3&quot;>&lt;/div>
+&lt;script>
+  var animNum3 = new AnimNum('#demo3', 500, {
+    decimals: 0
+  });
+  animNum3.start().then(() => 
+    animNum3.update(1000)
+  ).then(() => {
+    animNum3.update(-9999)
+  });
+&lt;/script></code></pre><p><div id="demo3"></div></p>
+<script>
+  var animNum3 = new AnimNum('#demo3', 500, {
+    decimals: 0
+  });
+  animNum3.start().then(() => 
+    animNum3.update(1000)
+  ).then(() => {
+    animNum3.update(-9999)
+  });
+</script>
+
+<h3>手动执行</h3><pre class="prettyprint source lang-html"><code>&lt;div id=&quot;demo4&quot;>&lt;/div>
+&lt;button id=&quot;btn&quot;>start&lt;/button>
+&lt;script>
+  var animNum4 = new AnimNum('#demo4', 500);
+  document.querySelector('#btn').addEventListener('click', function () {
+    animNum4.start()
+  })
+&lt;/script></code></pre><p><div id="demo4"></div></p>
+<p><button id="btn">start</button></p>
+<script>
+  var animNum4 = new AnimNum('#demo4', 500);
+  document.querySelector('#btn').addEventListener('click', function () {
+    animNum4.start()
+  })
+</script></article>
+    </section>
+
+
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a>
+	
+		on 2017-11-03T23:03:44+08:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : false,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>
