@@ -1,4 +1,5 @@
 <script src="https://unpkg.com/anim-num" type="text/javascript"></script>
+
 # Anim-Num
 > 全称: animate-number, 具有动画能力的数字. <small>默认采用 transform + transition 过渡动画</small>
 
