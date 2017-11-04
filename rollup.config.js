@@ -10,6 +10,7 @@ const version = process.env.VERSION || require('./package.json').version
 const resolve = p => {
   return path.resolve(__dirname, './', p)
 }
+
 const banner =
 '/*!\n' +
 ' * anim-num.js v' + version + '\n' +

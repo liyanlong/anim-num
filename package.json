@@ -17,6 +17,11 @@
     "animation",
     "number"
   ],
+  "files": [
+    "pacakge.json",
+    "dist/**",
+    "README.md"
+  ],
   "author": "liyl",
   "license": "MIT",
   "devDependencies": {
@@ -41,5 +46,6 @@
     "rollup-plugin-postcss": "^0.5.5",
     "rollup-watch": "^4.3.1",
     "webpack": "^3.8.1"
-  }
+  },
+  "repository": "https://github.com/liyanlong/anim-num.git"
 }
